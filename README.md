@@ -14,8 +14,8 @@
 - 🔹 Button: 6mm Push button for color change
 - 🔹 ON/OFF Switch: ON/OFF switch (dimensions 13mm x 9mm)
 - 🔹 Capacitor: 100µF (for LED stability)  
-- 🔹 Power supply: TP4056 Li-Po charging module with USB-C port
-- 🔹 Step-Up converter: MT3608 adjustable DC-DC Step-Up voltage converter
+- 🔹 Battery charger: TP4056 Li-Po charging module with USB-C port
+- 🔹 Battery: Standard 18650 battery with dedicated 18650 holder.
 - 🔹 Step-Up converter: MT3608 adjustable DC-DC Step-Up voltage converter
 
 🛠️ Circuit Diagram  
@@ -25,12 +25,16 @@
 
 1️⃣ Flashing the Code to ATtiny13  
 Use Arduino as ISP programmer:  
-1. Select ATtiny13 in Arduino IDE  
-2. Set 9,6MHz internal clock  
-3. Upload the code using "Burn Bootloader"  
+1. Go to Tools → Board → MicroCore → ATtiny13 
+2. Set boot settings ass folowing:
+    - BOD: BOD 2.7V (If doesn't work you can use BOD 4.3V)
+    - Bootloader: No bootloader 
+    - Clock: 9.6 MHz internal osc. 
+    - EEPROM: EEPROM retained
+    - Programmer: Arduino as ISP 
 
 2️⃣ Wiring Instructions  
--  PIR Sensor OUT → ATtiny13 Pin PB2  
+- PIR Sensor OUT → ATtiny13 Pin PB2  
 - WS2812B Data IN → ATtiny13 Pin PB0  
 - Button → ATtiny13 Pin PB1  
 
